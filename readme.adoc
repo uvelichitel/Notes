@@ -55,7 +55,6 @@ gtk-can-change-accels = 1
 
 === three ===
 
-==== fore ====
 
 ===== five =====
 
