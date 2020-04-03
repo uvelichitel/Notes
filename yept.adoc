@@ -1,0 +1,2 @@
+Comment device sound snd in /usr/src/sys/amd64/conf/GENERIC
+install OSS pkg

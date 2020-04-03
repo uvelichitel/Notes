@@ -1,0 +1,13 @@
+////
+
+vi: ft=asciidoc
+////
+
+== Mlterm
+
+$ ./configure --prefix /usr/home/uvelichitel/.local --prefix=/home/uvelichitel/.local --disable-ssh2 --disable-fribidi --disable-utmp --disable-kbd --disable-uim --disable-m17nlib --disable-ibus --disable-fcitx --disable-scim --disable-canna --disable-wnn --disable-skk --disable-iiimf --disable-ind --enable-optimize-redrawing --with-type-engines=xft --disable-dl-table --without-map-table --without-prop-table --disable-dl-type --disable-dl-ctl --with-tools --with-gtk=2.0 --disable-shared
+
+== Vim
+
+$ ./configure --enable-luainterp=yes --enable-cscope --disable-netbeans --enable-autoservername --disable-rightleft --disable-arabic --enable-gui=gtk2 --disable-nls --with-x --with-luajit --with-tlib=ncurses --with-lua-prefix=/usr/local --prefix=/home/uvelichitel/.local
+

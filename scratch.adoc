@@ -1,0 +1,162 @@
+// vi:ft=asciidoc
+
+= Scratch
+
+== Random
+
+☡oʀʀo★
+ъ
+
+=== vim
+
+configure vim ./configure --enable-luainterp=yes --enable-cscope --disable-netbeans --enable-autoservername --disable-rightleft --disable-arabic --enable-gui=gtk2 --disable-nls --with-x --with-luajit --with-tlib=ncurses --with-lua-prefix=/usr/local --prefix=/home/uvelichitel/.local --with-compiledby="Uvelichitel"
+"Если вы используете обычный терминальный Вим, а не NeoVim, то...
+"... для изменения курсора в разных режимах используйте это:
+set ttimeoutlen=10 "Понижаем задержку ввода escape последовательностей
+let &t_SI.="\e[5 q" "SI = режим вставки
+let &t_SR.="\e[3 q" "SR = режим замены
+let &t_EI.="\e[1 q" "EI = нормальный режим
+"Где 1 - это мигающий прямоугольник
+"2 - обычный прямоугольник
+"3 - мигающее подчёркивание
+"4 - просто подчёркивание
+"5 - мигающая вертикальная черта
+"6 - просто вертикальная черта
+
+Xterm can be run in a mode where it uses 8-bit escape sequences.  The CSI code
+is used instead of <Esc>[.  The advantage is that an <Esc> can quickly be
+recognized in Insert mode, because it can't be confused with the start of a
+special key.
+For the builtin termcap entries, Vim checks if the 'term' option contains
+"8bit" anywhere.  It then uses 8-bit characters for the termcap entries, the
+mouse and a few other things.  You would normally set $TERM in your shell to
+"xterm-8bit" and Vim picks this up and adjusts to the 8-bit setting
+automatically.
+When Vim receives a response to the |t_RV| (request version) sequence and it
+starts with CSI, it assumes that the terminal is in 8-bit mode and will
+convert all key sequences to their 8-bit variants.
+share files curl -F file=@test.txt https://file.io
+
+Prose
+:set formatoptions-=t
+:set formatoptions=l
+:set nowrap
+:set wrap
+:set breakindent
+:set showbreak=..
+:set linebreak
+:set wrap linebreak nolist
+
+reformatting
+
+These are useful to reformat text paragraphs or chunks of code (NOTE: this does not work for python code...):
+
+    V=  - select text, then reformat with =
+    =   - will correct alignment of code
+    ==  - one line; 
+    gq  - reformat paragraph
+
+Options to change how automatic formatting is done:
+
+    :set formatoptions (default "tcq")
+        t - textwidth
+        c - comments (plus leader -- see :help comments)
+        q - allogw 'gq' to work
+        n - numbered lists
+        2 - keep second line indent
+        1 - single letter words on next line
+        r - (in mail) comment leader after 
+
+Other related options:
+
+    :set wrapmargin
+    :set textwidth
+
+=== installed apps 
+
+mpsyt -- youtube in console
+xwininfo Window information utility for X
+pkg install compton
+xfe file manager
+jq Lightweight and flexible command-line JSON processor
+mtm Terminal multiplexer focused on simplicity, compatibility and stability
+
+=== bspwm
+
+bspc query -N -n .floating | xargs xtitle -f "%s==bspc node %u -n pointed" | dmenu -l 5 -d "==" | sh
+bspc node -t fullscreen
+
+=== C lang
+Read hole file in C
+[source,C]
+-----
+long length;
+FILE * f = fopen (filename, "rb");
+
+if (f)
+{
+  fseek (f, 0, SEEK_END);
+  length = ftell (f);
+  fseek (f, 0, SEEK_SET);
+  buffer = malloc (length);
+  if (buffer)
+  {
+    fread (buffer, 1, length, f);
+  }
+  fclose (f);
+}
+
+if (buffer)
+{
+  // start to process your data / extract strings here...
+}
+-----
+
+=== FreeBSD
+CDPATH environment variable
+The CDPATH environment variable contains a colon-separated list of directories that will be searched for the argument of a cd command, if the argument does not begin with a slash.
+pkg add ~/Builds/abiword/abiwords-3.0.2.txz
+
+=== Tail
+Default XDG application xdg-mime default xfe.desktop inode/directory
+XOSD displays text on your screen, sounds simple right? The difference is it is unmanaged and shaped, so it appears transparent. This gives the effect of an On Screen Display, like your TV/VCR etc. Comes with an XMMS plugin.
+sixel image in terminal format
+vim template/snippet - input read iabbrev
+set complete+=k
+set dictionary+=/your/dict/file
+pdfgrep
+qualculate
+котейнеризация linux namespaces cgroups
+CP2615 usb-I2S
+вейвлеты Wavelet Tree Для установки k-го бита array[k/8] |= 1 << (k % 8)
+TTS flite festival espeak
+simplenote nvpy
+service nfsclient start
+mount yept:/data /mnt
+umount /mnt
+
+doas cu -s 115200 -l /dev/ttyu0
+
+амлодипин
+
+Message from atop-2.0.2.b3_3:
+
+--
+atop succesfully installed. To run in interactive mode use "atop" command.
+
+To run the atop in collecting mode from startup, add
+
+atop_enable="YES"
+
+in your /etc/rc.conf.
+
+You will also need to add "rotate" command to the system crontab:
+
+0 0 * * *               /usr/local/etc/rc.d/atop rotate >/dev/null
+
+To change number of days to keep the logs (default - 30) use atop_keepdays
+variable in your /etc/rc.conf file.
+
+To change default (10 seconds) interval use atop_inteval (e.g. atop_interval=5)
+in /etc/rc.conf
+
