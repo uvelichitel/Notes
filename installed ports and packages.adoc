@@ -2,13 +2,37 @@
 
 == Sheet
 
+gnumeric //gnome
 sc-im //sheets
+
+== Tools
+
 du
 since
+mpsyt -- youtube in console
+xwininfo Window information utility for X
+pkg install compton
+xfe file manager
+jq Lightweight and flexible command-line JSON processor
+mtm Terminal multiplexer focused on simplicity, compatibility and stability
+figlet is a program that creates large ASCII art characters out of ordinary
+screen characters
+figlet -C utf8 "Йепт"
 
 == Paint
 
 krita mtpaint aseprite grafx2
+
+=== Converters
+
+webp (executable cwebp)
+imagemagick (executable convert)
+nip2
+photoflow
+
+=== util
+
+libqrencode (qrencode)
 
 == FileManage
 
@@ -18,3 +42,13 @@ cfiles
 
 htop
 atop
+
+== Custom
+
+pkg add ~/Builds/abiword/abiwords-3.0.4.txz
+
+== Builds
+
+xidel "xml xpath xquery parsing"
+
+
