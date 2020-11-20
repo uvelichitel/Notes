@@ -1,12 +1,14 @@
 == Tools
 
 xmlcopyeditor
-
 Evaluate XPath  "//*[local-name()='info']"
+
+xidel //cli XPath evaluator
 
 xsltproc  //to .fo
 xsltproc  --output  scratch.html  /usr/local/share/xsl/docbook-ns/html/docbook.xsl  scratch.xml
 
+igor //docbook linter
 
 xmlroff  //from .fo to .pdf
 fop

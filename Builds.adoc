@@ -9,5 +9,12 @@ $ ./configure --prefix /usr/home/uvelichitel/.local --prefix=/home/uvelichitel/.
 
 == Vim
 
-$ ./configure --enable-luainterp=yes --enable-cscope --disable-netbeans --enable-autoservername --disable-rightleft --disable-arabic --enable-gui=gtk2 --disable-nls --with-x --with-luajit --with-tlib=ncurses --with-lua-prefix=/usr/local --prefix=/home/uvelichitel/.local
+$ ./configure --enable-luainterp=dynamic --enable-cscope --disable-netbeans --enable-autoservername --disable-rightleft --disable-arabic --enable-gui=gtk2 --disable-nls --with-x --with-luajit --with-tlib=ncurses --with-lua-prefix=/usr/local --prefix=/home/uvelichitel/.local
 
+$ ./configure --enable-python3interp=dynamic --with-python3-command=python3.8 --with-python-config-dir="/usr/local/lib/python3.8/config-3.8/" --enable-cscope --disable-netbeans --enable-autoservername --disable-rightleft --disable-arabic --enable-gui=gtk2 --disable-nls --with-x --with-tlib=ncurses --prefix=/home/uvelichitel/.local
+
+== nnn
+
+gmake O_PCRE=1 O_QSORT=1 strip install clean
+The following command installs or updates (after backup) all plugins:
+curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh

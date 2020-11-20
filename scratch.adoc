@@ -6,92 +6,19 @@
 
 == Random
 
- ★☡oʀʀoъ★
+ ★☡oʀʀoЪ★
 ☡øʀʀø★
-
-=== bspwm
-
-bspc query -N -n .floating | xargs xtitle -f "%s==bspc node %u -n pointed" | dmenu -l 5 -d "==" | sh
-bspc node -t fullscreen
-
-=== C lang
-Read hole file in C
-
-[source,c]
-----
-long length;
-FILE * f = fopen (filename, "rb");
-
-if (f)
-{
-  fseek (f, 0, SEEK_END);
-  length = ftell (f);
-  fseek (f, 0, SEEK_SET);
-  buffer = malloc (length);
-  if (buffer)
-  {
-    fread (buffer, 1, length, f);
-  }
-  fclose (f);
-}
-
-if (buffer)
-{
-  // start to process your data / extract strings here...
-}
-----
-
-=== FreeBSD
-
-CDPATH environment variable
-The CDPATH environment variable contains a colon-separated list of directories that will be searched for the argument of a cd command, if the argument does not begin with a slash.
-pkg add ~/Builds/abiword/abiwords-3.0.2.txz
-Temperature
-	sysctl -a | grep -i temperature
-	ipmitool sensor
 
 == Tail
 
-Default XDG application xdg-mime default xfe.desktop inode/directory
-XOSD displays text on your screen, sounds simple right? The difference is it is unmanaged and shaped, so it appears transparent. This gives the effect of an On Screen Display, like your TV/VCR etc. Comes with an XMMS plugin.
-sixel image in terminal format
-vim template/snippet - input read iabbrev
-set complete+=k
-set dictionary+=/your/dict/file
-pdfgrep
-qualculate
-котейнеризация linux namespaces cgroups
-CP2615 usb-I2S
-вейвлеты Wavelet Tree Для установки k-го бита array[k/8] |= 1 << (k % 8)
-TTS flite festival espeak
-simplenote nvpy
-service nfsclient start
-mount yept:/data /mnt
-umount /mnt
-
-doas cu -s 115200 -l /dev/ttyu0
-
 амлодипин
-
-Message from atop-2.0.2.b3_3:
-
-atop succesfully installed. To run in interactive mode use "atop" command.
-
-To run the atop in collecting mode from startup, add
-
-atop_enable="YES"
-
-in your /etc/rc.conf.
-
-You will also need to add "rotate" command to the system crontab:
-
-           /usr/local/etc/rc.d/atop rotate >/dev/null
-
-To change number of days to keep the logs (default - 30) use atop_keepdays
-variable in your /etc/rc.conf file.
-
-To change default (10 seconds) interval use atop_inteval (e.g. atop_interval=5)
-in /etc/rc.conf
-
 татарское приветствие "исянмесез" буквально переводится как "живы ли вы?"
+габитус
+Весна покажет кто где срал.
 
+sed s/\(^[^|]*\)|[0-9]*|[0-9]*/\1/
+glurp minimal musicpd client
+benevolent dictator
+из всех животных только кот убивает для удовольствия, за это мы его любим
+Cantata is a QT graphical client for MPD
+gdlv -- frontend to delve golang debugger

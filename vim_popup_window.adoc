@@ -1,0 +1,103 @@
+fu! Flt_term_win(cmd, width, height, border_highlight) abort
+    let width = float2nr(&columns * a:width)
+    let height = float2nr(&lines * a:height)
+    let row = float2nr((&lines - height) / 2)
+    let col = float2nr((&columns - width) / 2)
+    let top = '┌' . repeat('─', width - 2) . '┐'
+    let mid = '│' . repeat(' ', width - 2) . '│'
+    let bot = '└' . repeat('─', width - 2) . '┘'
+    let border = [top] + repeat([mid], height - 2) + [bot]
+    let frame = s:create_popup_window(a:cmd, a:border_highlight, {
+        \ 'line': row,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'is_frame': 1,
+        \ })
+    call setbufline(frame, 1, border)
+    call s:create_popup_window(a:cmd, 'Normal', {
+        \ 'line': row + 1,
+        \ 'col': col + 2,
+        \ 'width': width - 4,
+        \ 'height': height - 2,
+        \ })
+endfu
+
+fu! s:create_popup_window(cmd,hl, opts) abort
+    if has_key(a:opts, 'is_frame')
+        let id = popup_create('', #{
+            \ line: a:opts.line,
+            \ col: a:opts.col,
+            \ minwidth: a:opts.width,
+            \ minheight: a:opts.height,
+            \ zindex: 50,
+            \ })
+        call setwinvar(id, '&wincolor', a:hl)
+        exe 'au BufWipeout * ++once call popup_close('..id..')'
+        return winbufnr(id)
+    else
+        let buf = term_start(a:cmd, {'hidden': 1, 'exit_cb' : 'OnTermExit'})
+        call popup_create(buf, #{
+            \ line: a:opts.line,
+            \ col: a:opts.col,
+            \ minwidth: a:opts.width,
+            \ minheight: a:opts.height,
+            \ zindex: 51,
+            \ })
+    endif
+endfu
+
+function! OnTermExit(job, message)
+    close
+    " TODO: add some code to confirm that current window is a popup.
+    " TODO: prevent close other window by accident.
+endfunction 
+
+nnoremap <silent> <leader>gz :call Flt_term_win('lazygit',0.9,0.6,'Todo')<CR>
+
+        function! Flt_term_win(cmd, width, height, border_highlight) abort
+            let width = float2nr(&columns * a:width)
+            let height = float2nr(&lines * a:height)
+            let bufnr = term_start(a:cmd, {'hidden': 1, 'term_finish': 'close'})
+
+            let winid = popup_create(bufnr, {
+                    \ 'minwidth': width,
+                    \ 'maxwidth': width,
+                    \ 'minheight': height,
+                    \ 'maxheight': height,
+                    \ 'border': [],
+                    \ 'borderchars': ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
+                    \ 'borderhighlight': [a:border_highlight],
+                    \ 'padding': [0,1,0,1],
+                    \ 'highlight': a:border_highlight
+                    \ })
+
+            " Optionally set the 'Normal' color for the terminal buffer
+            " call setwinvar(winid, '&wincolor', 'Special')
+
+            return winid
+        endfunction
+
+function! Flt_term_win(cmd, width, height, border_highlight) abort
+    let width = float2nr(&columns * a:width)
+    let height = float2nr(&lines * a:height)
+    let bufnr = term_start(a:cmd, {'hidden': 1, 'term_finish': 'close', 'cwd': getcwd()})
+
+    let winid = popup_create(bufnr, {
+            \ 'minwidth': width,
+            \ 'maxwidth': width,
+            \ 'minheight': height,
+            \ 'maxheight': height,
+            \ 'border': [],
+            \ 'borderchars': ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
+            \ 'borderhighlight': [a:border_highlight],
+            \ 'padding': [0,1,0,1],
+            \ 'highlight': a:border_highlight
+            \ })
+
+    " Optionally set the 'Normal' color for the terminal buffer
+    " call setwinvar(winid, '&wincolor', 'Special')
+
+    return winid
+endfunction
+

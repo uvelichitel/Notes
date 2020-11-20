@@ -1,5 +1,7 @@
 // vi:ft=asciidoc
 
+:hardbreaks:
+
 == Sheet
 
 gnumeric //gnome
@@ -18,10 +20,20 @@ mtm Terminal multiplexer focused on simplicity, compatibility and stability
 figlet is a program that creates large ASCII art characters out of ordinary
 screen characters
 figlet -C utf8 "Йепт"
+multitail -- MultiTail lets you view one or multiple files like the original tail program.
+xbanish xbanish hides the mouse cursor when you start typing, and shows it again when the mouse cursor moves or a mouse button is pressed.
+
+namazu -- indexer full text search
+mknmz -O namazu /home/uvelichitel/Notes /home/uvelichitel/Books
+mknmz --update=namazu
 
 == Paint
 
 krita mtpaint aseprite grafx2
+
+Discuss Asciidoctor,role=external,window=_blank
+Discuss Asciidoctor^
+"Google, Yahoo, Bing^",role=teal
 
 === Converters
 
@@ -43,6 +55,13 @@ cfiles
 htop
 atop
 
+== Calc
+
+bc
+Floating 'bc -l' or 'scale=4'
+
+qalc Qalculate!	Powerful and easy to use multi-purpose cross-platform desktop calculator
+
 == Custom
 
 pkg add ~/Builds/abiword/abiwords-3.0.4.txz
@@ -51,4 +70,33 @@ pkg add ~/Builds/abiword/abiwords-3.0.4.txz
 
 xidel "xml xpath xquery parsing"
 
+rclone "can mount cloud store yandex drive google drive"
+doas kldload fusefs
+
+== Notes
+
+Message from atop-2.0.2.b3_3:
+
+atop succesfully installed. To run in interactive mode use "atop" command.
+
+To run the atop in collecting mode from startup, add
+
+atop_enable="YES"
+
+in your /etc/rc.conf.
+
+You will also need to add "rotate" command to the system crontab:
+
+           /usr/local/etc/rc.d/atop rotate >/dev/null
+
+To change number of days to keep the logs (default - 30) use atop_keepdays
+variable in your /etc/rc.conf file.
+
+To change default (10 seconds) interval use atop_inteval (e.g. atop_interval=5)
+in /etc/rc.conf
+
+== Audio
+glurp minimal musicpd client
+vimpc console musicpd client
+mpsyt pip3 install --user mps-youtube youtube cli search
 

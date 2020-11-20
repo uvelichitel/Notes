@@ -1,0 +1,76 @@
+// vi:ft=asciidoc
+
+CDPATH environment variable
+The CDPATH environment variable contains a colon-separated list of directories that will be searched for the argument of a cd command, if the argument does not begin with a slash.
+pkg add ~/Builds/abiword/abiwords-3.0.2.txz
+Temperature
+	sysctl -a | grep -i temperature
+	ipmitool sensor
+
+kernel options FUSEFS
+kernel device ioat
+kernel options AUTOFS
+     Alternatively, to load the	driver as a module at boot time, place the
+     following line in loader.conf(5):
+
+	   autofs_load="YES"
+To enable autofs(5) at boot time, add this line to /etc/rc.conf:
+
+autofs_enable="YES"
+
+Then autofs(5) can be started by running:
+
+# service automount start
+# service automountd start
+# service autounmountd start
+
+EXAMPLES
+     To	unmount	all mounted autofs filesystems:
+
+	   umount -At autofs
+
+     To	mount autofs filesystems specified in auto_master(5):
+
+	   automount
+
+Example 29.2. Mounting an Export with autofs(5)
+
+In this example, showmount -e shows the exported file systems that can be mounted from the NFS server, foobar:
+
+% showmount -e foobar
+Exports list on foobar:
+/usr                               10.10.10.0
+/a                                 10.10.10.0
+% cd /net/foobar/usr
+
+cpg mvg pv -- copy with progress bar
+vim :smile
+
+Default XDG application xdg-mime default xfe.desktop inode/directory
+XOSD displays text on your screen, sounds simple right? The difference is it is unmanaged and shaped, so it appears transparent. This gives the effect of an On Screen Display, like your TV/VCR etc. Comes with an XMMS plugin.
+sixel image in terminal format
+vim template/snippet - input read iabbrev
+set complete+=k
+set dictionary+=/your/dict/file
+pdfgrep
+котейнеризация linux namespaces cgroups
+CP2615 usb-I2S
+вейвлеты Wavelet Tree Для установки k-го бита array[k/8] |= 1 << (k % 8)
+TTS flite festival espeak
+simplenote nvpy
+service nfsclient start
+mount yept:/data /mnt
+umount /mnt
+
+doas cu -s 115200 -l /dev/ttyu0
+
+Create gist from cli
+
+[source,bash]
+----
+curl -X POST -d '{"public":true,"files":{"addgist.txt":{"content":"This is a cool way to add a gist!"}}}' -u uvelichitel:e58fd014c6123e3e644264bd5d1c21bca796aa68 https://api.github.com/gists
+----
+
+token
+e58fd014c6123e3e644264bd5d1c21bca796aa68
+
