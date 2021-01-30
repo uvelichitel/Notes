@@ -3,6 +3,8 @@
 vi: ft=asciidoc
 ////
 
+= Builds
+
 == Mlterm
 
 $ ./configure --prefix /usr/home/uvelichitel/.local --prefix=/home/uvelichitel/.local --disable-ssh2 --disable-fribidi --disable-utmp --disable-kbd --disable-uim --disable-m17nlib --disable-ibus --disable-fcitx --disable-scim --disable-canna --disable-wnn --disable-skk --disable-iiimf --disable-ind --enable-optimize-redrawing --with-type-engines=xft --disable-dl-table --without-map-table --without-prop-table --disable-dl-type --disable-dl-ctl --with-tools --with-gtk=2.0 --disable-shared

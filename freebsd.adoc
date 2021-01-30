@@ -70,3 +70,8 @@ Create gist from cli
 ----
 curl -X POST -d '{"public":true,"files":{"addgist.txt":{"content":"This is a cool way to add a gist!"}}}' -u uvelichitel:e58fd014c6123e3e644264bd5d1c21bca796aa68 https://api.github.com/gists
 ----
+
+serial via st
+/home/uvelichitel/.local/bin/st -l /dev/cuau0 115200
+
+rsync -uv yept:~/.sndio/cookie /home/uvelichitel/.sndio/cookie

@@ -1,3 +1,7 @@
+= Vim customization
+
+== Plugins as git submodules
+
 cd ~/.vim
 
 git submodule foreach git pull
@@ -7,8 +11,12 @@ or
 
 git submodule update --remote --merge
 
+== Configure build
 
 configure vim ./configure --enable-luainterp=yes --enable-cscope --disable-netbeans --enable-autoservername --disable-rightleft --disable-arabic --enable-gui=gtk2 --disable-nls --with-x --with-luajit --with-tlib=ncurses --with-lua-prefix=/usr/local --prefix=/home/uvelichitel/.local --with-compiledby="Uvelichitel"
+
+== Cursor
+
 "Если вы используете обычный терминальный Вим, а не NeoVim, то...
 "... для изменения курсора в разных режимах используйте это:
 set ttimeoutlen=10 "Понижаем задержку ввода escape последовательностей
@@ -21,6 +29,8 @@ let &t_EI.="\e[1 q" "EI = нормальный режим
 "4 - просто подчёркивание
 "5 - мигающая вертикальная черта
 "6 - просто вертикальная черта
+
+== 8-bit Alt
 
 Xterm can be run in a mode where it uses 8-bit escape sequences.  The CSI code
 is used instead of <Esc>[.  The advantage is that an <Esc> can quickly be
@@ -36,7 +46,8 @@ starts with CSI, it assumes that the terminal is in 8-bit mode and will
 convert all key sequences to their 8-bit variants.
 share files curl -F file=@test.txt https://file.io
 
-Prose
+== Prose
+
 :set formatoptions-=t
 :set formatoptions=l
 :set nowrap
@@ -71,3 +82,66 @@ Other related options:
     :set wrapmargin
     :set textwidth
 
+==  Omnifunc
+
+[source,vim]
+----
+fun! CompleteMonths(findstart, base)
+    echom "Called: |" . a:findstart . "| " . a:base . "|"
+  if a:findstart
+    " locate the start of the word
+    let line = getline('.')
+    let start = col('.') - 1
+    while start > 0 && line[start - 1] =~ '\a'
+      let start -= 1
+    endwhile
+    echom "Returned: " . start
+    return start
+  else
+    " find months matching with "a:base"
+    for m in split("January February March April May June July August September October November December")
+      if m =~ '^' . a:base
+    call complete_add(m)
+      endif
+      sleep 300m	" simulate searching for next match
+      if complete_check()
+    break
+      endif
+    endfor
+    return []
+  endif
+endfun
+set completefunc=CompleteMonths
+set omnifunc=CompleteMonths
+
+let s:matches=".fa-lg .fa-2x .fa-3x .fa-4x .fa-5x .fa-fw .fa-ul .fa-ul .fa-li .fa-li.fa-lg .fa-border .fa-pull-left .fa-pull-right .fa.fa-pull-left"
+
+function! csscomplete#CompleteFA(findstart, base)
+    if a:findstart
+        " locate the start of the word
+        let line = getline('.')
+        let start = col('.') - 1
+        while start > 0 && (line[start - 1] =~ '\a' || line[start - 1] =~ '.' || line[start - 1] =~ '-')
+            let start -= 1
+        endwhile
+        return start
+    else
+        " find classes matching "a:base"
+        let res = []
+        for m in split(s:matches)
+            if m =~ '^' . a:base
+                call add(res, m)
+            endif
+        endfor
+        return res
+    endif
+endfun
+
+setlocal completefunc=csscomplete#CompleteFA
+----
+
+=== Language server protocol
+
+bear make
+# generates compile_commands.json
+https://github.com/MaskRay/ccls/wiki/Project-Setup

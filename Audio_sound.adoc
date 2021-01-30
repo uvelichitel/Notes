@@ -1,0 +1,14 @@
+== OpenBSD
+
+=== sndiod
+
+Note that, to get actual 24-bit precision, the full signal
+processing chain must use 24-bit precision, so sndiod must be
+recompiled with:
+
+        make COPTS=-DADATA_BITS=24
+To record 24-bit with no
+ precision loss, you have to recompile aucat in 24-bit mode.
+ 
+   make COPTS=-DADATA_BITS=24
+

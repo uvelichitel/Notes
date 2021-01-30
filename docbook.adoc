@@ -1,4 +1,52 @@
-== Tools
+= Tools
+
+== asciidoctor extensions
+
+asciidoctor-mathematical +
+asciidoctor-mathematical processes latexmath and stem blocks and inline macros and replaces them with generated SVG or PNG images, thus enables stem contents on a much wider range of asciidoctor backends.
+
+[cols=4*]
+|===
+|attribute
+|description
+|valid values
+|default value
+
+|mathematical-format
+|format of generated images
+|svg, png
+|png
+
+|mathematical-ppi
+|ppi of generated images, only valid for png files
+|any positive number
+|300.0
+
+|mathematical-inline
+|if present will inline equations as svg (only useful for HTML output)
+|true/false
+|false
+|===
+
+asciidoctor-pdf -r asciidoctor-mathematical -a mathematical-format=svg -o test.pdf sample.adoc
+asciidoctor-pdf -r asciidoctor-mathematical -o test.pdf sample.adoc
+
+== Habr
+
+asciidoc --backend habrahabr filename.adoc
+В том месте статьи, где нужен <habracut> вставьте атрибут: {habracut}.
+
+habrahabr latex mathjax
+
+ $inline$\log_b a * \frac a b$inline$
+ $$display$$T(x) = a * T(n / b) + f(n)$$display$$
+
+== Golang
+
+libasciidoc +
+github.com/bytesparadise/libasciidoc
+
+== XML
 
 xmlcopyeditor
 Evaluate XPath  "//*[local-name()='info']"

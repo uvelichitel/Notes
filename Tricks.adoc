@@ -1,0 +1,8 @@
+== Phone
+
+rsync to android phone
+rsync -vvv -a -e 'ssh -p 2222' --no-perms --no-times --size-only "/tank/data/A>ks/Алексей Иванов_Тобол. Много званых_Иван Литвинов" 192.168.1.63:/storage/FFFF-FFFF/Android/data/com.arachnoid.sshelper/MyMedia/
+
+mount phone via MPT
+jmtpfs /mtp -o allow_other
+android-file-transfer (pkg delete android-file-transfer-qt5)

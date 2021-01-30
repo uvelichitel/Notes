@@ -1,3 +1,4 @@
+= WaveletTree
 
 == Oriented binary tree
 
