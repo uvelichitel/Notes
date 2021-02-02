@@ -1,5 +1,4 @@
 ////
-
 vi: ft=asciidoc
 ////
 
