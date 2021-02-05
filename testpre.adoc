@@ -1,0 +1,6 @@
+= test pre
+
+include::Builds.adoc
+
+include::scratch.adoc
+

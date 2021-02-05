@@ -37,3 +37,4 @@ philips gc 4909
 йопстер
 связность сцепление цикломатическая сложность
 mega.nz recovery key LUEYFzON1AZ_ndgCT3yjQw
+todo.txt ttdl go-for-it
